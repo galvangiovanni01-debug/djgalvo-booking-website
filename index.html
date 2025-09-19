@@ -1,0 +1,99 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DJ GALVO</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #111; color: #fff; }
+    .sidebar { width: 200px; height: 100vh; position: fixed; background: #222; padding: 20px; }
+    .sidebar h2 { color: #fff; }
+    .sidebar a { display: block; color: #aaa; margin: 15px 0; text-decoration: none; }
+    .sidebar a:hover { color: #fff; }
+    .content { margin-left: 220px; padding: 30px; display: none; }
+    .active { display: block; }
+    h1 { color: #00ccff; }
+    .form-group { margin-bottom: 15px; }
+    input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; }button { padding: 10px 20px; background: #00ccff; border: none; color: #000; font-weight: bold; cursor: pointer; }
+    audio, iframe { width: 100%; margin-top: 10px; }
+    .star-rating { font-size: 20px; color: gold; }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>DJ GALVO</h2>
+  <a href="#" onclick="showSection('booking')">Booking</a>
+  <a href="#" onclick="showSection('remix')">Remix</a>
+  <a href="#" onclick="showSection('info')">Info</a>
+  <a href="#" onclick="showSection('reviews')">Reviews</a>
+</div>
+
+<div id="booking" class="content active">
+  <h1>Booking Form</h1>
+  <form action="https://formspree.io/f/mwpngbwq" method="POST">
+    <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+    <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+    <div class="form-group"><label>Event Date</label><input type="date" name="date" required></div>
+    <div class="form-group"><label>City</label><input type="text" name="city" required></div>
+    <div class="form-group">
+      <label>Event Type</label>
+      <select name="eventType">
+        <option>Birthday</option><option>Wedding</option><option>Club</option><option>Private Party</option><option>Corporate</option>
+      </select>
+    </div><div class="form-group">
+      <label>Budget</label>
+      <select name="budget">
+        <option>&lt; €100</option><option>€100-300</option><option>€300-600</option><option>Discuss budget</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Approximate Guests</label><input type="number" name="guests"></div>
+    <div class="form-group">
+      <label>Equipment Available?</label>
+      <select name="equipment">
+        <option>None</option><option>DJ Console</option><option>Speakers</option><option>Lights</option><option>Full Setup</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Notes</label><textarea name="notes"></textarea></div>
+    <button type="submit">Send Booking</button>
+  </form>
+</div>
+
+<div id="remix" class="content">
+  <h1>My Remixes</h1>
+  <p>⚠ Only 30 seconds preview available due to copyright rules.</p>
+  <audio controls><source src="sample1.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=LINK"></iframe>
+</div>
+
+<div id="info" class="content">
+  <h1>About Me</h1><p>Based in Reggio Emilia, Italy.<br>Email: giogalvan01@icloud.com<br>Instagram: <a href="https://instagram.com/dj_galvo" target="_blank">@dj_galvo</a></p>
+</div>
+
+<div id="reviews" class="content">
+  <h1>Leave a Review</h1>
+  <form action="https://formspree.io/f/mqkgykrv" method="POST">
+    <div class="form-group"><label>Name</label><input type="text" name="reviewer" required></div>
+    <div class="form-group">
+      <label>Rating (1-5 Stars)</label>
+      <select name="rating">
+        <option>⭐</option><option>⭐⭐</option><option>⭐⭐⭐</option><option>⭐⭐⭐⭐</option><option>⭐⭐⭐⭐⭐</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Comment (optional)</label><textarea name="comment"></textarea></div>
+    <button type="submit">Submit Review</button>
+  </form>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
+```
